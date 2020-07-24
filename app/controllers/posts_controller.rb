@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.page(params[:page]).per(10)
+    @q = Post.ransack(params[:q])
+    @posts = @q.result(:distinct => true).page(params[:page]).per(10)
 
     render("post_templates/index.html.erb")
   end
