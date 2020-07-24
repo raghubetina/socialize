@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "posts#index"
   # Routes for the Post resource:
 
   # CREATE
